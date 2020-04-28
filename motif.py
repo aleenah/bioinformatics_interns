@@ -1,53 +1,55 @@
 #!/usr/bin/env python3
-#print interation of function output
-#store an item from the list in a string that as changing each iteration
+
 #gaining access to regular expression module
 import re
 
-#call function with parameters list of split strings and kmer variable
+#set variable equal to kmer 
 sixmer = "TGGCGA"
 
-#create a dictionary that contains split strings and kmer variable
+#open file with sequence to read it , set handle
 with open ("og_seq.fasta", "r") as in_handle:
 	sequence = in_handle.read()
-
-#iterate through function output
+	
+#interpret handle and set interpretation to variable
 seq = str(sequence)
 
-#take last item in list of split strings, out of list
+#turn variable holding read file into a collection of strings
 seq_list = sequence.split(sixmer)
 
-#open file with sequence to read it , set handle
-#break string at desired kmer, creating a list and save as variable
-print(seq_list)
-
-#turn variable holding read file into a collection of strings
-seq_list.remove(seq_list[0])
-
-#break string at desired kmer, creating a list and save as variable
-print(seq_list)
-
-#set variable equal to kmer 
-#assign output from function to variable 
-def prepend(list, str):
-
 #print list of split strings
-	str += "{0}"
+print(seq_list)
 
 #take first item in list of split strings, out of the list
-	list = [str.format(i) for i in list]
+seq_list.remove(seq_list[0])
 
 #print list of split strings (sans first item)
+print(seq_list)
+
+#create function that takes in two parameters
+def prepend(list, str):
+
+#store an item from the list in a string that as changing each iteration
+	str += "{0}"
+	
+#break string at desired kmer, creating a list and save as variable
+	list = [str.format(i) for i in list]
+	
+#call function with parameters list of split strings and kmer variable
+#retreive list from function
 	return (list)
 
-#sort list of split strings without the first item
+#assign output from function to variable 
 repeat_list = prepend(seq_list, sixmer)
 
-#interpret handle and set interpretation to variable
-#create function that takes in two parameters
+#iterate through function output
 for item in repeat_list:
-
-#the two parameters take in two different collections
+	
+#print iteration of function output
 	print(item)
 
-#retreive list from function
+	
+	
+#create a dictionary that contains split strings and kmer variable
+#take last item in list of split strings, out of list
+#sort list of split strings without the first item
+#the two parameters take in two different collections
