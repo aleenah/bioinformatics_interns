@@ -8,12 +8,13 @@ sixmer = "TGGCGA"
 
 #open file with sequence to read it , set handle
 with open ("og_seq.fasta", "r") as in_handle:
-	sequence = in_handle.read()
 	
 #interpret handle and set interpretation to variable
+	sequence = in_handle.read()
+	
 seq = str(sequence)
 
-#turn variable holding read file into a collection of strings
+#break string at desired kmer, creating a list and save as variable
 seq_list = sequence.split(sixmer)
 
 #print list of split strings
@@ -26,12 +27,12 @@ seq_list.remove(seq_list[0])
 print(seq_list)
 
 #create function that takes in two parameters
+#the two parameters take in two different collections
 def prepend(list, str):
 
 #store an item from the list in a string that as changing each iteration
 	str += "{0}"
 	
-#break string at desired kmer, creating a list and save as variable
 	list = [str.format(i) for i in list]
 	
 #call function with parameters list of split strings and kmer variable
@@ -48,8 +49,7 @@ for item in repeat_list:
 	print(item)
 
 	
-	
+#turn variable holding read file into a collection of strings
 #create a dictionary that contains split strings and kmer variable
 #take last item in list of split strings, out of list
 #sort list of split strings without the first item
-#the two parameters take in two different collections
